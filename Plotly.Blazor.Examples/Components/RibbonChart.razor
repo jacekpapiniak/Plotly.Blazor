@@ -1,9 +1,10 @@
 ﻿@using Plotly.Blazor.LayoutLib
 @inject NavigationManager MyNavigationManager
 
-<PlotlyChart style="height: 60vh; min-height: 350px; margin-left: 30%" Id="RibbonChart" Config="config" Layout="layout" Data="data" @ref="plotlyChart"/>
+<PlotlyChart style="height: 60vh; min-height: 350px; margin-left: 30%" Id="RibbonChart" Config="config" Layout="layout" Data="data" EmitEvents="events" @ref="plotlyChart" @onplotly_click="OnClick"/>
 
 @code {
+    PlotlyEventNames events = PlotlyEventNames.Click | PlotlyEventNames.DoubleClick;
     const string Url = "https://raw.githubusercontent.com/plotly/datasets/master/3d-ribbon.json";
     
     PlotlyChart plotlyChart;
@@ -70,4 +71,9 @@
     }
     
     record Ribbon(object[][] X, object[][] Y, object[][] Z, string[][] ColorScale);
+    
+    void OnClick(PlotlyClickEvent eventArgs)
+    {
+        Console.WriteLine($"{eventArgs}");
+    }
 }

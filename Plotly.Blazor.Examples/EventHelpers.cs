@@ -25,7 +25,7 @@ namespace Plotly.Blazor.Examples
     
     public class PlotlyClickEvent : EventArgs
     {
-        public Pie Value { get; set; }
+        public Surface Value { get; set; }
         public string ChartType { get; set; }
     }
     
