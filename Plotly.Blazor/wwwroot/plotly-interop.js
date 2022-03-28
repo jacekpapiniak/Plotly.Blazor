@@ -47,11 +47,17 @@
     purge: function (id) {
         window.Plotly.purge(id);
     },
-    relayout: function (id, layout = {} ) {
+    relayout: function (id, layout = {}) {
         window.Plotly.relayout(id, layout);
     },
     restyle: function (id, data, indizes) {
         window.Plotly.restyle(id, data, indizes);
+    },
+    toImage: function (id, format, height, width) {
+        return window.Plotly.toImage(id, { format: format, height: height, width: width });
+    },
+    downloadImage: function (id, format, height, width, filename) {
+        return window.Plotly.downloadImage(id, { format: format, height: height, width: width, filename: filename });
     },
     registerEmitEvents: function (id, eventNames) {
         const plot = document.getElementById(id);
