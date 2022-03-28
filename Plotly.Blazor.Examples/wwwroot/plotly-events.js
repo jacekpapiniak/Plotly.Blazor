@@ -21,7 +21,7 @@
             value: event.detail.points[0].data,
             chartType : event.detail.points[0].fullData.type
         }
-    },
+    }
 }
 
 // Register custom event names and handlers
@@ -41,7 +41,6 @@ Blazor.registerCustomEventType('plotly_doubleclick', {
     browserEventName: 'plotly_doubleclick',
     createEventArgs: plotlyExampleEvents.plotlyNoDataEventArgsCreator
 });
-
 
 Blazor.registerCustomEventType('plotly_click', {
     browserEventName: 'plotly_click',
