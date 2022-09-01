@@ -171,7 +171,18 @@
     {
         await Restyle(trace, new[] { index });
     }
-
+    
+    /// <summary>
+    /// Updates the traces with the given indices using the provided data
+    /// </summary>
+    /// <param name="data">New data for traces</param>
+    /// <param name="indices">The indices of the traces to update.</param>
+    /// <returns>Task</returns>
+    public async Task Restyle(Dictionary<string, object> data, int[] indices)
+    {
+        await JsRuntime.Restyle(objectReference, data, indices);
+    }
+    
     /// <summary>
     ///     Exports the given chart as a binary image string.
     ///     For example, this string can be used as src attribute for an &lt;img&gt; element.
