@@ -162,7 +162,20 @@ namespace Plotly.Blazor
         {
             await jsRuntime.InvokeVoidAsync($"{PlotlyInterop}.restyle", objectReference.Value.Id, trace?.PrepareJsInterop(SerializerOptions), indizes);
         }
-
+        
+        /// <summary>
+        /// Restyle the traces with the given indices with the given data.
+        /// </summary>
+        /// <param name="jsRuntime">The js runtime.</param>
+        /// <param name="objectReference">The object reference.</param>
+        /// <param name="data">The data to restyle the traces.</param>
+        /// <param name="indices">The indices of the traces to be updated.</param>
+        /// <returns>Task</returns>
+        public static async Task Restyle(this IJSRuntime jsRuntime, DotNetObjectReference<PlotlyChart> objectReference, Dictionary<string, object> data, IEnumerable<int> indices)
+        {
+            await jsRuntime.InvokeVoidAsync($"{PlotlyInterop}.restyle", objectReference.Value.Id, data, indices);
+        }
+        
         /// <summary>
         ///     Can be used to export the chart as a static image and returns a binary string of the exported image.
         /// </summary>
